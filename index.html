@@ -421,7 +421,7 @@
         <div class="kpi-card">
           <div class="kpi-card-header">
             <h3 class="kpi-name">Fahrgäste Nahverkehr</h3>
-            <span class="kpi-unit">>+1 Mrd. Fahrten/Jahr (Nah)</span>
+            <span class="kpi-unit">>+1 Mrd pro Jahr (Nah)</span>
           </div>
           <div class="kpi-chart-container">
             <canvas id="chart-kunden-fahrgaeste-nah"></canvas>
@@ -732,31 +732,7 @@
             Ziel: Mindestens 5 Projekte pro Jahr – höhere Werte erfüllen ebenfalls das Ziel.
           </div>
         </div>
-        
-        <div class="kpi-card">
-          <div class="kpi-card-header">
-            <h3 class="kpi-name">F&E-Quote</h3>
-            <span class="kpi-unit">% v. Umsatz</span>
-          </div>
-          <div class="kpi-chart-container">
-            <canvas id="chart-innovation-fe-quote"></canvas>
-          </div>
-          <div class="kpi-legend">
-            <div class="legend-item" style="opacity: 0.5;">
-              <div class="legend-color" style="background-color: var(--db-teal)"></div>
-              <div class="legend-label">Ist 2024</div>
-              <div class="legend-value" style="font-size: 12px; font-weight: 500; color: var(--db-dark-gray);">Daten nicht verfügbar</div>
-            </div>
-            <div class="legend-item">
-              <div class="legend-color" style="background-color: var(--db-medium-gray)"></div>
-              <div class="legend-label">Ziel 2025: ≥10%</div>
-              <div class="legend-value" data-animate="10">≥10.0</div>
-            </div>
-          </div>
-          <div class="kpi-target-note" style="margin-top: 12px; text-align: center;">
-            Ziel: F&E-Quote ≥ 10 % – Werte darüber erfüllen ebenfalls das Ziel.
-          </div>
-        </div>
+
       </div>
     </div>
   </main>
@@ -996,7 +972,7 @@
         plugins: []
       });
 
-      // Innovation charts
+      // Innovation chart
       const ctxInnovation = document.getElementById('chart-innovation-projekte').getContext('2d');
       new Chart(ctxInnovation, {
         type: 'bar',
@@ -1004,7 +980,7 @@
           labels: ['Ist 2024', 'Soll 2025 (≥5 p.a.)'],
           datasets: [{
             data: [0, 5],
-            backgroundColor: ['#F39200', ' #8A9BAA'],
+            backgroundColor: ['#F39200', '#8A9BAA'],
             borderRadius: 4,
             maxBarThickness: 30
           }]
@@ -1025,9 +1001,9 @@
                   borderDash: [6, 6],
                   label: {
                     enabled: true,
-                    
+                    content: 'Zielwert ≥ 5',
                     position: 'start',
-                    backgroundColor: '#F39200',
+                    backgroundColor: 'rgba(243,146,0,0.15)',
                     color: '#F39200',
                     font: {
                       weight: 'bold'
@@ -1053,62 +1029,6 @@
         plugins: []
       });
 
-      const ctxFEQuote = document.getElementById('chart-innovation-fe-quote').getContext('2d');
-      new Chart(ctxFEQuote, {
-        type: 'bar',
-        data: {
-          labels: ['Ist 2024', 'Soll 2025 (≥10%)'],
-          datasets: [{
-            data: [0, 10],
-            backgroundColor: ['#F39200', ' #8A9BAA'],
-            borderRadius: 4,
-            maxBarThickness: 30
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            annotation: {
-              annotations: {
-                zielLinie: {
-                  type: 'line',
-                  yMin: 10,
-                  yMax: 10,
-                  borderColor: '#F39200',
-                  borderWidth: 3,
-                  borderDash: [6, 6],
-                  label: {
-                    enabled: true,
-                    content: 'Zielwert ≥ 10 %',
-                    position: 'start',
-                    backgroundColor: '#F39200',
-                    color: '#F39200',
-                    font: {
-                      weight: 'bold'
-                    }
-                  }
-                }
-              }
-            },
-            tooltip: {
-              callbacks: {
-                label: ctx => ctx.parsed.y + ' %'
-              }
-            }
-          },
-          scales: {
-            y: {
-              beginAtZero: true,
-              suggestedMax: 12,
-              ticks: { callback: v => v + ' %' }
-            }
-          }
-        },
-        plugins: []
-      });
-      
       // Animate numbers on scroll
       const animatedCounters = document.querySelectorAll('[data-animate]');
       const observer = new IntersectionObserver((entries) => {
