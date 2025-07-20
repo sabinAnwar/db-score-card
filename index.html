@@ -439,28 +439,6 @@
             </div>
           </div>
         </div>
-
-        <div class="kpi-card">
-          <div class="kpi-card-header">
-            <h3 class="kpi-name">Marktanteil Schiene (Güterverkehr)</h3>
-            <span class="kpi-unit">%</span>
-          </div>
-          <div class="kpi-chart-container">
-            <canvas id="chart-kunden-marktanteil-cargo"></canvas>
-          </div>
-          <div class="kpi-legend">
-            <div class="legend-item">
-              <div class="legend-color" style="background-color: var(--db-light-blue)"></div>
-              <div class="legend-label">Ist 2024</div>
-              <div class="legend-value" data-animate="20.1">20.1</div>
-            </div>
-            <div class="legend-item">
-              <div class="legend-color" style="background-color: var(--db-medium-gray)"></div>
-              <div class="legend-label">Soll 2030</div>
-              <div class="legend-value" data-animate="25">25</div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     
@@ -844,7 +822,6 @@
       createChart('chart-kunden-cargo', [2.9, 2], 'Ist 2024', 'Soll 2025', ['#005A9C', sollColor]);
       createChart('chart-kunden-fahrgaeste-fern', [130, 260], 'Ist 2024', 'Soll 2030', ['#005A9C', sollColor]);
       createChart('chart-kunden-fahrgaeste-nah', [1.73, 2.73], 'Ist 2024', 'Soll 2030', ['#005A9C', sollColor]);
-      createChart('chart-kunden-marktanteil-cargo', [20.1, 25], 'Ist 2024', 'Soll 2030', ['#005A9C', sollColor]);
       
       // Process charts
       createChart('chart-prozess-fern', [62.5, 80], 'Ist 2024', 'Soll 2025', ['#00884A', sollColor]);
